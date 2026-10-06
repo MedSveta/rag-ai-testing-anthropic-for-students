@@ -2,11 +2,11 @@
 venv/
 .env
 .env.local
-.chroma/
+
 __pycache__/
 *.py[cod]
 .pytest_cache/
-.deepeval/
+
 .coverage
 htmlcov/
 .idea/
