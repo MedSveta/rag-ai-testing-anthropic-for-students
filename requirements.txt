@@ -1,0 +1,2 @@
+# Editable install reads dependencies from pyproject.toml.
+-e .

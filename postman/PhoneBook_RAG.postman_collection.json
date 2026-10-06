@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "PhoneBook RAG AI Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Retrieve only",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"question\": \"What is the maximum customer password length?\",\n  \"top_k\": 4\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/retrieve",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "retrieve"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Ask RAG",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"question\": \"What is the maximum customer password length?\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/ask",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "ask"
+          ]
+        }
+      }
+    }
+  ]
+}
