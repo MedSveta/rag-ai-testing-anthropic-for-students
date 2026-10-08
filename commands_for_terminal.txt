@@ -30,3 +30,24 @@ python3 -m venv .venv
   "api_key_configured": true,
   "knowledge_base_exists": true
 }
+
+/retrieve
+question
+What is the length password?
+
+{
+  "question": "What is the password length?",
+  "contexts": [
+    {
+      "chunk_id": "t14-6-2-new-customer-password-requirements",
+      "source": "requirements.md",
+      "section": "6. Technical Requirements > 6.2 New Customer — Password Requirements",
+      "requirement_ids": [
+        "T14"
+      ],
+      "text": "Section: 6. Technical Requirements > 6.2 New Customer — Password Requirements\nRequirement T14: Customer password - Password must have minimum 8 symbols",
+      "distance": 0.4574878215789795,
+      "score": 0.5425121784210205
+    }
+  ]
+}
