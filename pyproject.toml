@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "phonebook-rag-ai-testing"
 version = "0.3.0"
 description = "Educational RAG and AI testing project with Anthropic, FastAPI, ChromaDB, pytest and DeepEval"
-requires-python = ">=3.12,<3.14"
+requires-python = ">=3.12,<3.13"
 license = {text = "MIT"}
 authors = [{name = "Training Project"}]
 dependencies = [
@@ -23,8 +23,16 @@ dependencies = [
 ]
 
 [project.scripts]
+test = "pytest:console_main"
 rag-index = "scripts.index_knowledge_base:main"
 rag-retrieve = "scripts.show_retrieval:main"
+
+[dependency-groups]
+dev = ["poethepoet==0.48.0"]
+
+[tool.poe.tasks]
+test = "python -m pytest"
+server = "uvicorn app.main:app --reload"
 
 [tool.setuptools.packages.find]
 include = ["app*", "scripts*"]

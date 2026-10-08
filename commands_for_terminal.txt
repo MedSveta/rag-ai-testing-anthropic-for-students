@@ -3,13 +3,30 @@ for win
 python -m venv .venv  установка venv
 .venv\Scripts\python -m pip install -r requirements.txt
 
-
 .venv\Scripts\python -m uvicorn app.main:app --reload запуск сервера
 
+.venv\Scripts\python -m pytest                запуск unit тесты
+.venv\Scripts\python -m pytest tests/api -v   запуск api тесты
 
 for mac os
 
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 
-.venv/bin/python -m uvicorn app.main:app
+.venv/bin/python -m uvicorn app.main:app   запуск сервера
+
+.venv/bin/python -m pytest tests/unit -v  запуск unit тесты
+.venv/bin/python -m pytest tests/api -v  запуск api тесты
+
+#http://127.0.0.1:8000/
+#/health
+#http://127.0.0.1:8000/health
+
+{
+  "status": "ok",
+  "app": "PhoneBook RAG AI Testing",
+  "version": "0.3.0",
+  "anthropic_model": "claude-sonnet-5",
+  "api_key_configured": true,
+  "knowledge_base_exists": true
+}
