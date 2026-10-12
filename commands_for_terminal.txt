@@ -7,6 +7,8 @@ python -m venv .venv  установка venv
 
 .venv\Scripts\python -m pytest                запуск unit тесты
 .venv\Scripts\python -m pytest tests/api -v   запуск api тесты
+.venv\Scripts\python -m pytest tests/api/test_retrieve.py -v   запуск api тесты retrieve
+
 
 for mac os
 
@@ -17,6 +19,7 @@ python3 -m venv .venv
 
 .venv/bin/python -m pytest tests/unit -v  запуск unit тесты
 .venv/bin/python -m pytest tests/api -v  запуск api тесты
+.venv/bin/python -m pytest tests/api/test_retrieve.py -v  запуск api тесты тесты retrieve
 
 #http://127.0.0.1:8000/
 #/health
