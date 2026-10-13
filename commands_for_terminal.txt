@@ -24,36 +24,3 @@ python3 -m venv .venv
 .venv/bin/python -m pytest tests/api/test_validation.py -v  запуск api тесты тесты validation
 
 
-#http://127.0.0.1:8000/
-#/health
-#http://127.0.0.1:8000/health
-
-{
-  "status": "ok",
-  "app": "PhoneBook RAG AI Testing",
-  "version": "0.3.0",
-  "anthropic_model": "claude-sonnet-5",
-  "api_key_configured": true,
-  "knowledge_base_exists": true
-}
-
-/retrieve
-question
-What is the length password?
-
-{
-  "question": "What is the password length?",
-  "contexts": [
-    {
-      "chunk_id": "t14-6-2-new-customer-password-requirements",
-      "source": "requirements.md",
-      "section": "6. Technical Requirements > 6.2 New Customer — Password Requirements",
-      "requirement_ids": [
-        "T14"
-      ],
-      "text": "Section: 6. Technical Requirements > 6.2 New Customer — Password Requirements\nRequirement T14: Customer password - Password must have minimum 8 symbols",
-      "distance": 0.4574878215789795,
-      "score": 0.5425121784210205
-    }
-  ]
-}
