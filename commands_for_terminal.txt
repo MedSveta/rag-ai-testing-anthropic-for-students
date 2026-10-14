@@ -9,6 +9,7 @@ python -m venv .venv  установка venv
 .venv\Scripts\python -m pytest tests/api -v   запуск api тесты
 .venv\Scripts\python -m pytest tests/api/test_retrieve.py -v   запуск api тесты retrieve
 .venv\Scripts\python -m pytest tests/api/test_validation.py -v   запуск api тесты validation
+.venv\Scripts\python -m pytest tests/api/test_quality_validation.py -v   запуск api тесты validation quality
 
 
 for mac os
@@ -22,5 +23,6 @@ python3 -m venv .venv
 .venv/bin/python -m pytest tests/api -v  запуск api тесты
 .venv/bin/python -m pytest tests/api/test_retrieve.py -v  запуск api тесты тесты retrieve
 .venv/bin/python -m pytest tests/api/test_validation.py -v  запуск api тесты тесты validation
+.venv/bin/python -m pytest tests/api/test_quality_validation.py -v  запуск api тесты тесты validation quality
 
 
