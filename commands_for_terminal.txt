@@ -6,6 +6,8 @@ python -m venv .venv  установка venv
 .venv\Scripts\python -m uvicorn app.main:app --reload запуск сервера
 
 .venv\Scripts\python -m pytest                запуск unit тесты
+.venv\Scripts\python -m pytest tests/test_golden_dataset.py        запуск golden тесты
+
 .venv\Scripts\python -m pytest tests/api -v   запуск api тесты
 .venv\Scripts\python -m pytest tests/api/test_retrieve.py -v   запуск api тесты retrieve
 .venv\Scripts\python -m pytest tests/api/test_validation.py -v   запуск api тесты validation
@@ -20,6 +22,8 @@ python3 -m venv .venv
 .venv/bin/python -m uvicorn app.main:app   запуск сервера
 
 .venv/bin/python -m pytest tests/unit -v  запуск unit тесты
+.venv/bin/python -m pytest tests/test_golden_dataset.py -v  запуск golden тесты
+
 .venv/bin/python -m pytest tests/api -v  запуск api тесты
 .venv/bin/python -m pytest tests/api/test_retrieve.py -v  запуск api тесты тесты retrieve
 .venv/bin/python -m pytest tests/api/test_validation.py -v  запуск api тесты тесты validation
