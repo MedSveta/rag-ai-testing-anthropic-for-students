@@ -1,0 +1,26 @@
+[
+  {
+    "id": "password-min",
+    "question": "What is the minimum customer password length?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T14"],
+    "expected_answer": "The minimum customer password length is 8 symbols",
+    "expected_contains": ["8"]
+  },
+  {
+    "id": "password-rotation",
+    "question": "How often must a customer change the password?",
+    "knowledge_status": "missing",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
+  },
+  {
+    "id": "sport",
+    "question": "Who won the volleyball?",
+    "knowledge_status": "off_topic",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
+  }
+]
