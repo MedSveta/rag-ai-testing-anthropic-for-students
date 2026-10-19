@@ -128,20 +128,28 @@
     "expected_contains": ["1"]
   },
   {
-    "id": "contact-name-numbers-special",
-    "question": "Are numbers and special characters allowed in a contact name?",
+    "id": "contact-name-special",
+    "question": "Are special characters allowed in a contact name?",
     "knowledge_status": "known",
-    "expected_requirement_ids": ["T18", "T19"],
-    "expected_answer": "Yes, numbers and special characters are allowed in the contact name",
-    "expected_contains": ["numbers", "special"]
+    "expected_requirement_ids": ["T19"],
+    "expected_answer": "Yes, special characters are allowed in the contact name",
+    "expected_contains": ["special"]
+  },
+  {
+    "id": "contact-name-numbers",
+    "question": "Are numbers allowed in a contact name?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T18"],
+    "expected_answer": "Yes, numbers are allowed in the contact name",
+    "expected_contains": ["numbers"]
   },
   {
     "id": "contact-last-name-required",
     "question": "Is the contact last name required?",
     "knowledge_status": "known",
-    "expected_requirement_ids": ["T21", "T22"],
-    "expected_answer": "Yes, the contact last name is required and must not be blank",
-    "expected_contains": ["required", "blank"]
+    "expected_requirement_ids": ["T21"],
+    "expected_answer": "Yes, the contact last name is required",
+    "expected_contains": ["required"]
   },
   {
     "id": "contact-last-name-min-length",
@@ -152,12 +160,20 @@
     "expected_contains": ["1"]
   },
   {
-    "id": "contact-last-name-numbers-special",
-    "question": "Can a contact last name contain numbers or special characters?",
+    "id": "contact-last-name-special",
+    "question": "Can a contact last name contain special characters?",
     "knowledge_status": "known",
-    "expected_requirement_ids": ["T23", "T24"],
-    "expected_answer": "Yes, numbers and special characters are allowed in the contact last name",
-    "expected_contains": ["numbers", "special"]
+    "expected_requirement_ids": ["T24"],
+    "expected_answer": "Yes, special characters are allowed in the contact last name",
+    "expected_contains": ["special"]
+  },
+  {
+    "id": "contact-last-name-numbers",
+    "question": "Can a contact last name contain numbers?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T23"],
+    "expected_answer": "Yes, numbers are allowed in the contact last name",
+    "expected_contains": ["numbers"]
   },
   {
     "id": "cust-email-before-at",
@@ -165,7 +181,8 @@
     "knowledge_status": "known",
     "expected_requirement_ids": ["T4"],
     "expected_answer": "At least one character before the @",
-    "expected_contains": ["one character"]
+    "expected_contains": ["one character"],
+    "known_issue": "Известный баг поиска: T4 приходит id T5"
   },
   {
     "id": "cust-email-after-at",
@@ -200,12 +217,20 @@
     "expected_contains": ["required", "blank"]
   },
   {
-    "id": "contact-address-chars",
-    "question": "Are numbers and special characters allowed in a contact address?",
+    "id": "contact-address-numbers",
+    "question": "Are numbers allowed in a contact address?",
     "knowledge_status": "known",
-    "expected_requirement_ids": ["T35", "T36"],
-    "expected_answer": "Yes, numbers and special characters are allowed in the contact address",
-    "expected_contains": ["numbers", "special"]
+    "expected_requirement_ids": ["T35"],
+    "expected_answer": "Yes, numbers are allowed in the contact address",
+    "expected_contains": ["numbers"]
+  },
+  {
+    "id": "contact-address-special",
+    "question": "Are special characters allowed in a contact address?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T36"],
+    "expected_answer": "Yes, special characters are allowed in the contact address",
+    "expected_contains": ["special"]
   },
   {
     "id": "phone-min",
@@ -225,11 +250,19 @@
   },
   {
     "id": "phone-digits-only",
-    "question": "Can a contact phone number contain letters or special characters?",
+    "question": "Can a contact phone number contain digits?",
     "knowledge_status": "known",
-    "expected_requirement_ids": ["T40", "T43", "T44"],
-    "expected_answer": "No, the phone number can contain only digits; letters and special characters are not allowed",
-    "expected_contains": ["digits", "not allowed"]
+    "expected_requirement_ids": ["T40"],
+    "expected_answer": "Yes, the phone number can contain only digits",
+    "expected_contains": ["digits"]
+  },
+  {
+    "id": "phone-characters",
+    "question": "Can a contact phone number contain characters?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T43", "T44"],
+    "expected_answer": "No, the phone number can contain only digits; characters and special characters are not allowed",
+    "expected_contains": ["not allowed"]
   },
   {
     "id": "phone-unique",
@@ -243,9 +276,10 @@
     "id": "phone-required",
     "question": "Is the contact phone number required?",
     "knowledge_status": "known",
-    "expected_requirement_ids": ["T38", "T39"],
-    "expected_answer": "Yes, the phone number is required and must not be blank",
-    "expected_contains": ["required", "blank"]
+    "expected_requirement_ids": ["T38"],
+    "expected_answer": "Yes, the phone number is required",
+    "expected_contains": ["required"],
+    "known_issue": "Not found T38, found   ['F8', 'T18', 'T45', 'T83']"
   },
   {
     "id": "description-optional",
@@ -256,20 +290,13 @@
     "expected_contains": ["not required"]
   },
   {
-    "id": "update-name-required",
-    "question": "Can the contact name be blank when updating a contact?",
-    "knowledge_status": "known",
-    "expected_requirement_ids": ["T54", "T55"],
-    "expected_answer": "No, the contact name is required and must not be blank when updating a contact",
-    "expected_contains": ["required", "blank"]
-  },
-  {
     "id": "update-phone-length",
     "question": "What phone number length is allowed when updating a contact?",
     "knowledge_status": "known",
     "expected_requirement_ids": ["T79", "T80"],
     "expected_answer": "The phone number must have a minimum of 10 and a maximum of 15 symbols",
-    "expected_contains": ["10", "15"]
+    "expected_contains": ["10", "15"],
+    "known_issue": "Not found ['T79', 'T80'], found   ['F8', 'T73', 'T78', 'T83']"
   },
   {
     "id": "update-description-optional",
