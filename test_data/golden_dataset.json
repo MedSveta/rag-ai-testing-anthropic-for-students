@@ -22,5 +22,325 @@
     "expected_requirement_ids": [],
     "expected_answer": "The information is not specified in the knowledge base",
     "expected_contains": ["not specified"]
+  },
+  {
+    "id": "password-max",
+    "question": "What is the maximum customer password length?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T15"],
+    "expected_answer": "The maximum customer password length is 15 symbols",
+    "expected_contains": ["15"]
+  },
+  {
+    "id": "password-special-chars",
+    "question": "Which special characters are allowed in a customer password?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T9"],
+    "expected_answer": "The password must contain at least one of these special characters: @, $, #, ^, &, *, !",
+    "expected_contains": ["@", "$", "#", "^", "&", "*", "!"]
+  },
+  {
+    "id": "password-uppercase",
+    "question": "Must a customer password contain an uppercase letter?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T11"],
+    "expected_answer": "Yes, at least one uppercase letter is required",
+    "expected_contains": ["uppercase"]
+  },
+  {
+    "id": "password-lowercase",
+    "question": "Must a customer password contain a lowercase letter?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T12"],
+    "expected_answer": "Yes, at least one lowercase letter is required",
+    "expected_contains": ["lowercase"]
+  },
+  {
+    "id": "password-number",
+    "question": "Is a number required in the customer password?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T13"],
+    "expected_answer": "Yes, at least one number is required in the password",
+    "expected_contains": ["number"]
+  },
+  {
+    "id": "password-english-letters",
+    "question": "Can a customer password contain non-English letters?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T10"],
+    "expected_answer": "No, only English letters are allowed in the password",
+    "expected_contains": ["English"]
+  },
+  {
+    "id": "password-required",
+    "question": "Can a customer leave the password blank during registration?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T7", "T8"],
+    "expected_answer": "No, the password is required and must not be blank",
+    "expected_contains": ["required", "blank"]
+  },
+  {
+    "id": "customer-email-required",
+    "question": "Is the customer email required?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T1", "T2"],
+    "expected_answer": "Yes, the customer email is required and must not be blank",
+    "expected_contains": ["required", "blank"]
+  },
+  {
+    "id": "customer-email-at-sign",
+    "question": "How many @ symbols must a customer email contain?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T3"],
+    "expected_answer": "The customer email must contain only one @",
+    "expected_contains": ["one", "@"]
+  },
+  {
+    "id": "customer-email-chars-around-at",
+    "question": "How many characters must be before and after @ in a customer email?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T4", "T5"],
+    "expected_answer": "At least one character before @ and at least one character after @",
+    "expected_contains": ["one", "before", "after"]
+  },
+  {
+    "id": "customer-email-english",
+    "question": "Can a customer email contain non-English letters?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T6"],
+    "expected_answer": "No, only English letters are allowed in the customer email",
+    "expected_contains": ["English"]
+  },
+  {
+    "id": "contact-name-required",
+    "question": "Is the contact name required when creating a new contact?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T16", "T17"],
+    "expected_answer": "Yes, the contact name is required and must not be blank",
+    "expected_contains": ["required", "blank"]
+  },
+  {
+    "id": "contact-name-min-length",
+    "question": "What is the minimum length of a contact name?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T20"],
+    "expected_answer": "The contact name must have a minimum of 1 symbol",
+    "expected_contains": ["1"]
+  },
+  {
+    "id": "contact-name-numbers-special",
+    "question": "Are numbers and special characters allowed in a contact name?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T18", "T19"],
+    "expected_answer": "Yes, numbers and special characters are allowed in the contact name",
+    "expected_contains": ["numbers", "special"]
+  },
+  {
+    "id": "contact-last-name-required",
+    "question": "Is the contact last name required?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T21", "T22"],
+    "expected_answer": "Yes, the contact last name is required and must not be blank",
+    "expected_contains": ["required", "blank"]
+  },
+  {
+    "id": "contact-last-name-min-length",
+    "question": "What is the minimum length of a contact last name?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T25"],
+    "expected_answer": "The contact last name must have a minimum of 1 symbol",
+    "expected_contains": ["1"]
+  },
+  {
+    "id": "contact-last-name-numbers-special",
+    "question": "Can a contact last name contain numbers or special characters?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T23", "T24"],
+    "expected_answer": "Yes, numbers and special characters are allowed in the contact last name",
+    "expected_contains": ["numbers", "special"]
+  },
+  {
+    "id": "cust-email-before-at",
+    "question": "How many characters must a customer email have before the @ symbol?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T4"],
+    "expected_answer": "At least one character before the @",
+    "expected_contains": ["one character"]
+  },
+  {
+    "id": "cust-email-after-at",
+    "question": "How many characters must a customer email have after the @ symbol?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T5"],
+    "expected_answer": "At least one character after the @",
+    "expected_contains": ["one character"]
+  },
+{
+    "id": "cust-email-letters",
+    "question": "Which letters are allowed in a customer email?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T6"],
+    "expected_answer": "Only English letters are allowed in the customer email",
+    "expected_contains": ["English"]
+  },
+  {
+    "id": "contact-email-unique",
+    "question": "Can two contacts have the same email?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T32"],
+    "expected_answer": "No, the contact email should not be repeated with the email of a previously created contact",
+    "expected_contains": ["not", "repeated"]
+  },
+  {
+    "id": "contact-address-required",
+    "question": "Is the contact address required?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T33", "T34"],
+    "expected_answer": "Yes, the contact address is required and must not be blank",
+    "expected_contains": ["required", "blank"]
+  },
+  {
+    "id": "contact-address-chars",
+    "question": "Are numbers and special characters allowed in a contact address?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T35", "T36"],
+    "expected_answer": "Yes, numbers and special characters are allowed in the contact address",
+    "expected_contains": ["numbers", "special"]
+  },
+  {
+    "id": "phone-min",
+    "question": "What is the minimum length of a contact phone number?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T41"],
+    "expected_answer": "The contact phone number must have a minimum of 10 symbols",
+    "expected_contains": ["10"]
+  },
+  {
+    "id": "phone-max",
+    "question": "What is the maximum length of a contact phone number?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T42"],
+    "expected_answer": "The contact phone number must have a maximum of 15 symbols",
+    "expected_contains": ["15"]
+  },
+  {
+    "id": "phone-digits-only",
+    "question": "Can a contact phone number contain letters or special characters?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T40", "T43", "T44"],
+    "expected_answer": "No, the phone number can contain only digits; letters and special characters are not allowed",
+    "expected_contains": ["digits", "not allowed"]
+  },
+  {
+    "id": "phone-unique",
+    "question": "Can two contacts have the same phone number?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T45"],
+    "expected_answer": "No, the phone number should not be repeated with the phone number of a previously created contact",
+    "expected_contains": ["not", "repeated"]
+  },
+  {
+    "id": "phone-required",
+    "question": "Is the contact phone number required?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T38", "T39"],
+    "expected_answer": "Yes, the phone number is required and must not be blank",
+    "expected_contains": ["required", "blank"]
+  },
+  {
+    "id": "description-optional",
+    "question": "Is the contact description required?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T46"],
+    "expected_answer": "No, the contact description is not required",
+    "expected_contains": ["not required"]
+  },
+  {
+    "id": "update-name-required",
+    "question": "Can the contact name be blank when updating a contact?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T54", "T55"],
+    "expected_answer": "No, the contact name is required and must not be blank when updating a contact",
+    "expected_contains": ["required", "blank"]
+  },
+  {
+    "id": "update-phone-length",
+    "question": "What phone number length is allowed when updating a contact?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T79", "T80"],
+    "expected_answer": "The phone number must have a minimum of 10 and a maximum of 15 symbols",
+    "expected_contains": ["10", "15"]
+  },
+  {
+    "id": "update-description-optional",
+    "question": "Is the description required when updating a contact?",
+    "knowledge_status": "known",
+    "expected_requirement_ids": ["T84"],
+    "expected_answer": "No, the description is not required when updating a contact",
+    "expected_contains": ["not required"]
+  },
+  {
+    "id": "customer-delete-all",
+    "question": "Can a customer delete all contacts?",
+    "knowledge_status": "missing",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
+  },
+  {
+    "id": "requirement-t50",
+    "question": "What does requirement T50 say?",
+    "knowledge_status": "missing",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
+  },
+  {
+    "id": "name-max-length",
+    "question": "What is the maximum length of a contact name?",
+    "knowledge_status": "missing",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
+  },
+  {
+    "id": "session-timeout",
+    "question": "After how many minutes of inactivity is a customer logged out automatically?",
+    "knowledge_status": "missing",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
+  },
+  {
+    "id": "max-contacts",
+    "question": "What is the maximum number of contacts a customer can have?",
+    "knowledge_status": "missing",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
+  },
+  {
+    "id": "weather",
+    "question": "What is the weather like in Berlin today?",
+    "knowledge_status": "off_topic",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
+  },
+  {
+    "id": "recipe",
+    "question": "How do I cook borscht?",
+    "knowledge_status": "off_topic",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
+  },
+  {
+    "id": "capital",
+    "question": "What is the capital of France?",
+    "knowledge_status": "off_topic",
+    "expected_requirement_ids": [],
+    "expected_answer": "The information is not specified in the knowledge base",
+    "expected_contains": ["not specified"]
   }
 ]
