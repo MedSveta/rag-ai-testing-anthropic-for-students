@@ -50,6 +50,43 @@ def test_ask_missing_answer_not_specified(api_client, case):
     answer = ask(api_client, case["question"])["answer"]
     assert "not specified" in answer.lower(), f"Model is not missing a question {answer}"
 
+@pytest.mark.parametrize("case", golden_params("known"))
+def test_ask_known_requirement_id_in_answer(api_client, case):
+    answer = ask(api_client, case["question"])["answer"]
+    for rid in case["expected_requirement_ids"]:
+        assert re.search(rf"\b{rid}\b", answer), f"{rid} not in {answer}"
+
+@pytest.mark.parametrize("case", golden_params("missing"))
+def test_ask_known_answer_include_all_text(api_client, case):
+    answer = ask(api_client, case["question"])["answer"]
+    assert answer == MISSING_ANSWER, f"{MISSING_ANSWER} not in {answer}"
+
+@pytest.mark.parametrize("case", golden_params("off_topic"))
+def test_ask_off_topic_question_not_call_claude(api_client, case):
+    body = ask(api_client, case["question"])
+
+    assert body["model"] == "not-called"
+    assert body["answer"] == MISSING_ANSWER
+    assert body["usage"]["output_tokens"] == 0
+    assert body["usage"]["input_tokens"] == 0
+
+@pytest.mark.parametrize("case", golden_params("known"))
+def test_ask_known_answer_not_big(api_client, case):
+    answer = ask(api_client, case["question"])["answer"]
+
+    words = len(answer.split())
+    assert words <= MAX_WORDS_ANSWER
+
+def test_same_question_gives_same_expected_contains(api_client):
+    question = "What is the maximum length of a contact phone number?"
+    answers = []
+    for _ in range(5):
+        response = api_client.post("/ask", json={"question": question})
+        assert response.status_code == 200, response.text
+        answers.append(response.json()["answer"])
+        for answer in answers:
+            assert "15" in answer
+
 
 
 

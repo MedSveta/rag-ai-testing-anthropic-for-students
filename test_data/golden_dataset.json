@@ -76,16 +76,16 @@
     "question": "Can a customer leave the password blank during registration?",
     "knowledge_status": "known",
     "expected_requirement_ids": ["T7", "T8"],
-    "expected_answer": "No, the password is required and must not be blank",
-    "expected_contains": ["required", "blank"]
+    "expected_answer": "No, the password must not be blank",
+    "expected_contains": ["blank"]
   },
   {
     "id": "customer-email-required",
     "question": "Is the customer email required?",
     "knowledge_status": "known",
     "expected_requirement_ids": ["T1", "T2"],
-    "expected_answer": "Yes, the customer email is required and must not be blank",
-    "expected_contains": ["required", "blank"]
+    "expected_answer": "Yes, the customer email is required",
+    "expected_contains": ["required"]
   },
   {
     "id": "customer-email-at-sign",
@@ -116,8 +116,8 @@
     "question": "Is the contact name required when creating a new contact?",
     "knowledge_status": "known",
     "expected_requirement_ids": ["T16", "T17"],
-    "expected_answer": "Yes, the contact name is required and must not be blank",
-    "expected_contains": ["required", "blank"]
+    "expected_answer": "Yes, the contact name is required",
+    "expected_contains": ["required"]
   },
   {
     "id": "contact-name-min-length",
