@@ -13,6 +13,9 @@ python -m venv .venv  установка venv
 .venv\Scripts\python -m pytest tests/api/test_validation.py -v   запуск api тесты validation
 .venv\Scripts\python -m pytest tests/api/test_quality_validation.py -v   запуск api тесты validation quality
 .venv\Scripts\python -m pytest tests/api/test_retrieval_golden.py -v
+.venv\Scripts\python -m pytest tests/api/test_ask_quality.py -v
+
+.venv\Scripts\python -m pytest -m "not llm"
 
 
 for mac os
@@ -31,4 +34,4 @@ python3 -m venv .venv
 .venv/bin/python -m pytest tests/api/test_quality_validation.py -v  запуск api тесты тесты validation quality
 .venv/bin/python -m pytest tests/api/test_retrieval_golden.py -v   запуск api тесты тесты retrieval_golden
 
-
+.venv/bin/python -m pytest -m "not llm"

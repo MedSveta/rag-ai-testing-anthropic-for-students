@@ -262,7 +262,7 @@
     "knowledge_status": "known",
     "expected_requirement_ids": ["T43", "T44"],
     "expected_answer": "No, the phone number can contain only digits; characters and special characters are not allowed",
-    "expected_contains": ["not allowed"]
+    "expected_contains": ["only digits"]
   },
   {
     "id": "phone-unique",
@@ -309,10 +309,10 @@
   {
     "id": "customer-delete-all",
     "question": "Can a customer delete all contacts?",
-    "knowledge_status": "missing",
+    "knowledge_status": "known",
     "expected_requirement_ids": [],
-    "expected_answer": "The information is not specified in the knowledge base",
-    "expected_contains": ["not specified"]
+    "expected_answer": "No, a customer cannot delete all contacts. only a manager can delete all contacts, using the customer token.",
+    "expected_contains": ["cannot", "delete", "all"]
   },
   {
     "id": "requirement-t50",

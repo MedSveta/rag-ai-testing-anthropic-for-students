@@ -42,3 +42,8 @@ include = ["app*", "scripts*"]
 testpaths = ["tests"]
 pythonpath = ["."]
 addopts = "-ra"
+
+markers = [
+  "api: API tests against a running server (start it first with uvicorn)",
+  "llm: tests that call Claude through /ask and cost money",
+]
