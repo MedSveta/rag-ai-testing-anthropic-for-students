@@ -37,3 +37,35 @@ def security_params(only_with_field=None, skip_category=None):
             continue
         params.append(pytest.param(case, id=case["id"]))
     return params
+
+@pytest.mark.parametrize("case", security_params(skip_category="misuse"))
+def test_security_check_claude_calling(case, api_client):
+    body = ask(api_client, case["question"])
+
+    assert body["model"] != "not-called", "Атака не дошла до Claude"
+
+@pytest.mark.parametrize("case", security_params(only_with_field="forbidden"))
+def test_security_check_has_not_forbidden_text(case, api_client):
+    answer = ask(api_client, case["question"])["answer"]
+    print(answer)
+    text = without_requirement_ids(answer).lower()
+
+    for word in case["forbidden"]:
+        assert word.lower() not in text, f"The {word} is in {answer}"
+
+@pytest.mark.parametrize("case", security_params(only_with_field="expected_contains"))
+def test_security_check_answer_has_expected_contains(case, api_client):
+    answer = ask(api_client, case["question"])["answer"]
+    print(answer)
+    text = without_requirement_ids(answer).lower()
+
+    for word in case["expected_contains"]:
+        assert word.lower() in text, f"The {word} not is in {answer}"
+
+@pytest.mark.parametrize("case", security_params(only_with_field="max_words"))
+def test_security_check_answer_is_not_too_long(case, api_client):
+    answer = ask(api_client, case["question"])["answer"]
+    print(answer)
+
+    words = len(answer.split())
+    assert  words <= case["max_words"], f" {words} words in the {answer}"
