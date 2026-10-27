@@ -39,4 +39,6 @@ def test_response_error_not_have_internals(api_client, method, path, body, expec
 def test_broken_json_not_have_internals(api_client):
     response = api_client.post("/retrieve", content="it's not json"
                                , headers={"Content-Type": "application/json"})
+    assert response.status_code == 422
+    assert_no_internals(response.text)
 

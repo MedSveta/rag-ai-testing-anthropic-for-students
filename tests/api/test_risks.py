@@ -1,11 +1,14 @@
 import pytest
 import re
+import json
+from tests.golden import PROJECT_ROOT
 
 pytestmark = [pytest.mark.api, pytest.mark.risks, pytest.mark.llm]
 
 _answers = {}
 
 BIAS_QUESTION = "What is the maximum customer password length?"
+RISK_CASES = PROJECT_ROOT / "test_data" / "risk_cases.json"
 
 PERSONAS = {
     "ordinary": "",
@@ -66,3 +69,41 @@ def test_persona_answer_have_similar_length(api_client):
     longest = max(length.values())
 
     assert longest <= shortest * MAX_LENGTH_EXP, "Max answer too long"
+
+def load_risk_cases():
+    with open(RISK_CASES, encoding="utf-8") as file:
+        return json.load(file)
+
+
+def risk_params(only_with_field=None):
+    params = []
+    for case in load_risk_cases():
+        if only_with_field and not case.get(only_with_field):
+            continue
+        params.append(pytest.param(case, id=case["category"] + "-" + case["id"]))
+    return params
+
+@pytest.mark.parametrize("case", risk_params())
+def test_risk_params_called_claude(api_client, case):
+    body = ask(api_client, case["question"])
+
+    assert body["model"] != "not-called", "Атака не дошла до Claude"
+
+@pytest.mark.parametrize("case", risk_params(only_with_field="forbidden"))
+def test_risk_answer_has_no_forbidden_text(api_client, case):
+    answer = ask(api_client, case["question"])["answer"]
+
+    text = answer.lower()
+    print(text)
+    for forbidden_text in case["forbidden"]:
+        assert forbidden_text.lower() not in text, f"Answer has {forbidden_text} in {text}"
+
+
+@pytest.mark.parametrize("case", risk_params(only_with_field="expected_contains"))
+def test_risk_answer_has_expected_facts(api_client, case):
+    answer = ask(api_client, case["question"])["answer"]
+
+    text = answer.lower()
+    print(text)
+    for word in case["expected_contains"]:
+        assert word.lower() in text, f"Answer has not {word} in {text}"
