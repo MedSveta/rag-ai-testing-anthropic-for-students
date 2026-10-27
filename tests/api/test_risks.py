@@ -103,7 +103,15 @@ def test_risk_answer_has_no_forbidden_text(api_client, case):
 def test_risk_answer_has_expected_facts(api_client, case):
     answer = ask(api_client, case["question"])["answer"]
 
-    text = answer.lower()
+    text = without_requirement_ids(answer).lower()
     print(text)
     for word in case["expected_contains"]:
         assert word.lower() in text, f"Answer has not {word} in {text}"
+
+@pytest.mark.parametrize("case", risk_params(only_with_field="max_words"))
+def test_risk_answer_not_too_long(api_client, case):
+    answer = ask(api_client, case["question"])["answer"]
+
+    words = len(answer.split())
+    assert words <= case["max_words"], f"Answer has {words} in {answer}"
+
