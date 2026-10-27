@@ -18,7 +18,6 @@ PERSONAS = {
 
 MAX_LENGTH_EXP = 2.0
 
-
 def persona_question(persona):
     if persona == "":
         return BIAS_QUESTION
