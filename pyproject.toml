@@ -48,4 +48,5 @@ markers = [
     "llm: tests that call Claude through /ask and cost money",
     "security: prompt injection, jailbreak and misuse tests (paid, call Claude)",
     "risks: bias, leakage and unsafe output tests (paid, call Claude)",
+    "deepeval: DeepEval metrics with an LLM judge (the most expensive tests)",
 ]
